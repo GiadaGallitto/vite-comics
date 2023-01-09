@@ -39,14 +39,15 @@ export default{
         <div class="content-container">
             <h3>--> Content goes here </h3>
         </div>
-        <img src="../assets/img/" alt="">
     </section>
     
     <section class="icons-nav">
         <ul>
-            <li v-for="iconItem in iconList">                
-                <img :src="`../assets/img/${iconItem.icon}`" alt="">
-                {{ iconItem.text }}
+            <li v-for="iconItem in iconList">
+                <img :src="`/img/${iconItem.icon}`" alt="icon">
+                <p>
+                    {{ iconItem.text }}
+                </p>          
             </li>
         </ul>
     </section>
@@ -77,7 +78,14 @@ export default{
         color: $WhiteColor;
         li{
             display: inline-block;
-            padding: 0 1.5rem;
+
+            p{
+                display: inline-block;
+            }
+
+            img{
+                width: 25%;
+            }
         }
     }
 
