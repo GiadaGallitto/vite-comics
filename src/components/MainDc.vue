@@ -1,5 +1,37 @@
 <script>
-
+export default{
+    data(){
+        return{
+            iconList: [
+                {
+                    icon: "buy-comics-digital-comics.png",
+                    text: "Digital Comics",
+                    current: false,
+                },
+                {
+                    icon: "buy-comics-merchandise.png",
+                    text: "Merchandise",
+                    current: false,
+                },
+                {
+                    icon: "buy-comics-subscriptions.png",
+                    text: "Subscription",
+                    current: false,
+                },
+                {
+                    icon: "buy-comics-shop-locator.png",
+                    text: "Comic Shop Locator",
+                    current: false,
+                },
+                {
+                    icon: "buy-dc-power-visa.svg",
+                    text: "Dc Power Visa",
+                    current: false,
+                }
+            ]
+        }
+    }
+}
 </script>
 
 <template>
@@ -7,12 +39,14 @@
         <div class="content-container">
             <h3>--> Content goes here </h3>
         </div>
+        <img src="../assets/img/" alt="">
     </section>
     
     <section class="icons-nav">
         <ul>
-            <li>                
-                Qui ci penso dopo... Trust the Process
+            <li v-for="iconItem in iconList">                
+                <img :src="`../assets/img/${iconItem.icon}`" alt="">
+                {{ iconItem.text }}
             </li>
         </ul>
     </section>
@@ -41,6 +75,10 @@
         margin: 0 auto;
         list-style-type: none;
         color: $WhiteColor;
+        li{
+            display: inline-block;
+            padding: 0 1.5rem;
+        }
     }
 
 }
