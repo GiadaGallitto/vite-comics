@@ -2,7 +2,7 @@
 export default{
     data(){
         return{
-            toolList: [
+            DcComicsList: [
                 {
                     text: "Characters",
                     url: "#",
@@ -38,7 +38,106 @@ export default{
                     url: "#",
                     current: false,
                 },
-            ]
+            ],
+
+            ShopList: [
+                {
+                    text: "Shop DC",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Shop DC Collectibles",
+                    url: "#",
+                    current: true,
+                },
+            ],
+
+            DcList: [
+                {
+                    text: "Terms Of Use",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Privacy policy (New)",
+                    url: "#",
+                    current: true,
+                },
+                {
+                    text: "Ad Choices",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Advertising",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Jobs",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Subscriptions",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Talent Workshops",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "CPSC Certificates",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Ratings",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Shop Help",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "Contact Us",
+                    url: "#",
+                    current: false,
+                },
+            ],
+
+            SitesList: [
+                {
+                    text: "DC",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "MAD Magazine",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "DC Kids",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "DC Universe",
+                    url: "#",
+                    current: false,
+                },
+                {
+                    text: "DC Power Visa",
+                    url: "#",
+                    current: false,
+                },
+            ],
         }
     }
 }
@@ -46,32 +145,41 @@ export default{
 
 <template>
     <section class="footer-container">
-        <div class="nav-part">
-            <div class="double-list">
+        <div class="content-container">
+            <div class="nav-part">
+                <div class="double-list">
+                    <ul>
+                        <li><h4>Dc Comics</h4></li>
+                        <li v-for="DcComicsItem in DcComicsList">
+                            {{ DcComicsItem.text }}
+                        </li>
+                    </ul>
+                    <ul>
+                        <li><h4>Shop</h4></li>
+                        <li v-for="ShopItem in ShopList">
+                            {{ ShopItem.text }}
+                        </li>
+                    </ul>
+                </div>
+    
                 <ul>
-                    <li><h4>Dc Comics</h4></li>
-                    <li v-for="toolItem in toolList">
-                        {{ toolItem.text }}
+                    <li><h4>Dc</h4></li>
+                    <li v-for="DcItem in DcList">
+                        {{ DcItem.text }}
                     </li>
                 </ul>
+    
                 <ul>
-                    <li><h4>Shop</h4></li>
-                    <li>Inserire frase originale</li>
+                    <li><h4>Sites</h4></li>
+                    <li v-for="SitesItem in SitesList">
+                        {{ SitesItem.text }}
+                    </li>
                 </ul>
             </div>
-
-            <ul>
-                <li>Ciao</li>
-                <li>Inserire frase originale</li>
-            </ul>
-
-            <ul>
-                <li>Ciao</li>
-                <li>Inserire frase originale</li>
-            </ul>
-        </div>
-        <div class="logo-part">
-
+    
+            <div class="logo-part">
+                <img src="../assets/img/dc-logo-bg.png" alt="Big logo Dc">
+            </div>
         </div>
     </section>
 </template>
@@ -81,10 +189,27 @@ export default{
 @use "../styles/partials/variables" as *;
 
 .footer-container{
-    .nav-part{
+    background-image: url(../assets/img/footer-bg.jpg);
+    background-size: cover;
+    .content-container{
         width: 70%;
-        margin: 3rem auto;
+        margin: 0 auto;
         display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        .nav-part{
+            display: flex;
+            padding: 3rem 0;
+        }
+        .logo-part{
+            position: relative;
+
+            img{
+                position: absolute;
+                top: -20%;
+                right: 0;
+            }
+        }
     }
 
     ul{
@@ -103,7 +228,7 @@ export default{
         text-transform: uppercase;
         margin-bottom: 0.8rem;
         font-size: 1rem;
-        color: $BlackColor;
+        color: $WhiteColor;
     }
 }
 
