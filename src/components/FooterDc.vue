@@ -149,13 +149,13 @@ export default{
             <div class="nav-part">
                 <div class="double-list">
                     <ul>
-                        <li><h4>Dc Comics</h4></li>
+                        <li><h4 class="margin-b">Dc Comics</h4></li>
                         <li v-for="DcComicsItem in DcComicsList">
                             {{ DcComicsItem.text }}
                         </li>
                     </ul>
                     <ul>
-                        <li><h4>Shop</h4></li>
+                        <li><h4 class="margin-b">Shop</h4></li>
                         <li v-for="ShopItem in ShopList">
                             {{ ShopItem.text }}
                         </li>
@@ -163,14 +163,14 @@ export default{
                 </div>
     
                 <ul>
-                    <li><h4>Dc</h4></li>
+                    <li><h4 class="margin-b">Dc</h4></li>
                     <li v-for="DcItem in DcList">
                         {{ DcItem.text }}
                     </li>
                 </ul>
     
                 <ul>
-                    <li><h4>Sites</h4></li>
+                    <li><h4 class="margin-b">Sites</h4></li>
                     <li v-for="SitesItem in SitesList">
                         {{ SitesItem.text }}
                     </li>
@@ -179,6 +179,34 @@ export default{
     
             <div class="logo-part">
                 <img src="../assets/img/dc-logo-bg.png" alt="Big logo Dc">
+            </div>
+        </div>
+    </section>
+
+    <section class="social-part">
+        <div class="social-container">
+            <div class="sign">
+                <h4>Sign-up Now!</h4>
+            </div>
+            <div class="social-icons">
+                <h3>Follow Us</h3>
+                <ul class="icons">
+                    <li>
+                        <img src="../assets/img/footer-facebook.png" alt="">
+                    </li>
+                    <li>
+                        <img src="../assets/img/footer-twitter.png" alt="">
+                    </li>
+                    <li>
+                        <img src="../assets/img/footer-youtube.png" alt="">
+                    </li>
+                    <li>
+                        <img src="../assets/img/footer-pinterest.png" alt="">
+                    </li>
+                    <li>
+                        <img src="../assets/img/footer-periscope.png" alt="">
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
@@ -224,11 +252,49 @@ export default{
         }
     }
 
-    h4{
-        text-transform: uppercase;
+}
+
+h4{
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: $WhiteColor;
+
+    &.margin-b{
         margin-bottom: 0.8rem;
-        font-size: 1rem;
-        color: $WhiteColor;
+    }
+}
+.social-part{
+    background-color: $DarkGreyColor;
+    .social-container{
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem;
+
+        .sign{
+            border: 2px solid $MainColor;
+            padding: 1rem;
+        }
+        .social-icons{
+            display: flex;
+            align-items: center;
+
+            h3{
+                color: $MainColor;
+                text-transform: uppercase;
+            }
+
+            ul{
+                list-style-type: none;
+                margin-left: 1.5rem;
+
+                li{
+                    display: inline-block;
+                    padding-right: 1.5rem;
+                }
+            }
+        }
     }
 }
 
