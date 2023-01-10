@@ -1,5 +1,5 @@
 <script>
-import ComicsCard from `./main-components/ComicsCard.vue`
+import ComicsCard from "./main-components/ComicsCard.vue"
 
 export default{
 
@@ -9,7 +9,7 @@ export default{
 
     data(){
         return{
-            comicList: [
+            comicsList: [
     {
         "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX",
         "price": "$19.99",
@@ -119,14 +119,16 @@ export default{
 <template>
     <section class="content-part">
         <div class="jumbotron">
+
+        </div>
+
+        <div class="comics-grid">
             <ComicsCard v-for="comicsElement in comicsList"
                 :imagePath="comicsElement.thumb"
                 :title="comicsElement.series"
             />
         </div>
-        <div class="comics-grid">
 
-        </div>
     </section>
     
     <section class="icons-nav">
@@ -154,10 +156,12 @@ export default{
     }
 
     .comics-grid{
-        height: 500px;
         width: 70%;
         margin: 0 auto;
         border: 1px solid white;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2rem 0;
     }
 };
 .icons-nav{
