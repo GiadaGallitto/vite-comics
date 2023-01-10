@@ -18,11 +18,14 @@ export default{
         <div class="image-box">
             <img :src="imagePath" />
         </div>
-        <h4>{{ title }}</h4>
+        <div class="text-box">
+            <p>{{ title }}</p>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+
     .comics-card{
         width: calc((100% / 6) - 2rem);
         display: flex;
@@ -36,6 +39,12 @@ export default{
             img{
                 width: 100%;
             }
+        }
+        .text-box{
+            padding-top: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: white;
         }
     }
 </style>

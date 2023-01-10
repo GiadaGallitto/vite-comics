@@ -158,10 +158,9 @@ export default{
     .comics-grid{
         width: 70%;
         margin: 0 auto;
-        border: 1px solid white;
         display: flex;
         flex-wrap: wrap;
-        padding: 2rem 0;
+        padding-top: 4rem;
     }
 };
 .icons-nav{
