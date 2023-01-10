@@ -10,6 +10,9 @@ export default{
 
     data(){
         return{
+
+            loadButton: false,
+
             comicsList: [
     {
         "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX",
@@ -113,6 +116,12 @@ export default{
     methods: {
         getImagePath: function(img){
             return new URL(`../assets/img/${img}`, import.meta.url).href;
+        },
+
+        showLoadMore(){
+            if(this.loadButton == false){
+                this.loadButton = true
+            }
         }
     }
 }
@@ -130,9 +139,13 @@ export default{
                 :imagePath="comicsElement.thumb"
                 :title="comicsElement.series"
             />
+            <ComicsCard v-show="loadButton" v-for="comicsElement in comicsList"
+                :imagePath="comicsElement.thumb"
+                :title="comicsElement.series"
+            />
         </div>
 
-        <div class="more-btn blue-btn">Load More</div>
+        <div @click="showLoadMore()" class="more-btn blue-btn">Load More</div>
     </section>
     
     <section class="icons-nav">
@@ -177,6 +190,7 @@ export default{
         text-align: center;
         width: 12%;
         margin: 0 auto;
+        cursor: pointer;
     }
 
     .blue-btn{
