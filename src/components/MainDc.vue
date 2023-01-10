@@ -45,9 +45,9 @@ export default{
         <ul>
             <li v-for="iconItem in iconList">
                 <img :src="`/img/${iconItem.icon}`" alt="icon">
-                <p>
+                <div>
                     {{ iconItem.text }}
-                </p>          
+                </div>          
             </li>
         </ul>
     </section>
@@ -72,21 +72,30 @@ export default{
     padding: 4rem 0;
     
     ul{
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
         list-style-type: none;
         color: $WhiteColor;
+
         li{
             display: inline-block;
 
-            p{
-                display: inline-block;
+            div{
+                display: inline;
+                margin: 0 1rem;
             }
 
             img{
-                width: 25%;
+                vertical-align: middle;
+            }
+
+            &:last-child{
+                img{
+                    height: 80px;
+                }
             }
         }
+
     }
 
 }
