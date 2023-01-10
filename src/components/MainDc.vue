@@ -123,12 +123,14 @@ export default{
         </div>
 
         <div class="comics-grid">
+            <div class="current blue-btn"><h2>Current Series</h2></div>
             <ComicsCard v-for="comicsElement in comicsList"
                 :imagePath="comicsElement.thumb"
                 :title="comicsElement.series"
             />
         </div>
 
+        <div class="more-btn blue-btn">Load More</div>
     </section>
     
     <section class="icons-nav">
@@ -149,6 +151,7 @@ export default{
 
 .content-part{
     background-color: $BlackColor;
+    padding-bottom: 2rem;
     .jumbotron{
         height: 300px;
         background-image: url(../assets/img/jumbotron.jpg);
@@ -161,6 +164,25 @@ export default{
         display: flex;
         flex-wrap: wrap;
         padding-top: 4rem;
+        position: relative;
+
+        .current{
+            position: absolute;
+            left: 0;
+            top: -4%;
+        }
+    }
+    .more-btn{
+        text-align: center;
+        width: 12%;
+        margin: 0 auto;
+    }
+
+    .blue-btn{
+        text-transform: uppercase;
+        color: $WhiteColor;
+        background-color: $MainColor;
+        padding: 0.8rem 2rem;
     }
 };
 .icons-nav{
