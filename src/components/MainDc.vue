@@ -183,7 +183,7 @@ export default{
         .current{
             position: absolute;
             left: 0;
-            top: -4%;
+            top: -28px;
         }
     }
     .more-btn{
