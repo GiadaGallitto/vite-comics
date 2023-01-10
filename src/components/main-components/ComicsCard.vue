@@ -1,15 +1,8 @@
 <script>
-import ComicsCard from `./main-components/ComicsCard.vue`
-
 export default{
-
-    components: {
-        ComicsCard,
-    }, 
-
     data(){
         return{
-            comicList: [
+            comicsList: [
     {
         "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX",
         "price": "$19.99",
@@ -82,107 +75,24 @@ export default{
         "series": "Catwoman",
         "type": "graphic novel"
     }
-            ],
-
-            iconList: [
-                {
-                    icon: "buy-comics-digital-comics.png",
-                    text: "Digital Comics",
-                    current: false,
-                },
-                {
-                    icon: "buy-comics-merchandise.png",
-                    text: "Merchandise",
-                    current: false,
-                },
-                {
-                    icon: "buy-comics-subscriptions.png",
-                    text: "Subscription",
-                    current: false,
-                },
-                {
-                    icon: "buy-comics-shop-locator.png",
-                    text: "Comic Shop Locator",
-                    current: false,
-                },
-                {
-                    icon: "buy-dc-power-visa.svg",
-                    text: "Dc Power Visa",
-                    current: false,
-                }
             ]
         }
+    },
+
+    props: {
+        imagePath: String,
+        title: String
     }
 }
 </script>
 
 <template>
-    <section class="content-part">
-        <div class="jumbotron">
-            <ComicsCard v-for="comicsElement in comicsList"
-                :imagePath="comicsElement.thumb"
-                :title="comicsElement.series"
-            />
-        </div>
-        <div class="comics-grid">
-
-        </div>
-    </section>
-    
-    <section class="icons-nav">
-        <div class="icons-container">
-            <div class="banner-element" v-for="iconItem in iconList">
-                <img :src="`/img/${iconItem.icon}`" alt="icon">
-                <p>
-                    {{ iconItem.text }}
-                </p>          
-            </div>
-        </div>
-    </section>
+    <div class="Dc-card">
+        <img :src="imagePath" />
+        <h4>{{ title }}</h4>
+    </div>
 </template>
 
 <style lang="scss" scoped>
-@use "../styles/general.scss" as *;
-@use "../styles/partials/variables" as *;
 
-.content-part{
-    background-color: $BlackColor;
-    .jumbotron{
-        height: 300px;
-        background-image: url(../assets/img/jumbotron.jpg);
-        background-size: cover;
-    }
-
-    .comics-grid{
-        height: 500px;
-        width: 70%;
-        margin: 0 auto;
-        border: 1px solid white;
-    }
-};
-.icons-nav{
-    background-color: $MainColor;
-    padding: 4rem 0;
-    
-    .icons-container{
-        width: 70%;
-        margin: 0 auto;
-        color: $WhiteColor;
-        display: flex;
-        justify-content: space-between;
-        .banner-element{
-            display: flex;
-            align-items: center;
-            margin: 0 0.5rem;
-
-            img{
-                width: 55px;
-            }
-
-            p{
-                margin-left: 1rem;
-            }
-        }
-    }
-}
 </style>
