@@ -2,6 +2,7 @@
 import ComicsCard from "./main-components/ComicsCard.vue"
 
 export default{
+    name: `Main Dc App`,
 
     components: {
         ComicsCard,
@@ -88,29 +89,30 @@ export default{
                 {
                     icon: "buy-comics-digital-comics.png",
                     text: "Digital Comics",
-                    current: false,
                 },
                 {
                     icon: "buy-comics-merchandise.png",
                     text: "Merchandise",
-                    current: false,
                 },
                 {
                     icon: "buy-comics-subscriptions.png",
                     text: "Subscription",
-                    current: false,
                 },
                 {
                     icon: "buy-comics-shop-locator.png",
                     text: "Comic Shop Locator",
-                    current: false,
                 },
                 {
                     icon: "buy-dc-power-visa.svg",
                     text: "Dc Power Visa",
-                    current: false,
                 }
             ]
+        }
+    },
+
+    methods: {
+        getImagePath: function(img){
+            return new URL(`../assets/img/${img}`, import.meta.url).href;
         }
     }
 }
@@ -136,7 +138,7 @@ export default{
     <section class="icons-nav">
         <div class="icons-container">
             <div class="banner-element" v-for="iconItem in iconList">
-                <img :src="`/img/${iconItem.icon}`" alt="icon">
+                <img :src="getImagePath(iconItem.icon)" alt="icon">
                 <p>
                     {{ iconItem.text }}
                 </p>          
@@ -146,7 +148,6 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-@use "../styles/general.scss" as *;
 @use "../styles/partials/variables" as *;
 
 .content-part{
