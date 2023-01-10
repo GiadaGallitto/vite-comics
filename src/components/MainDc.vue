@@ -42,14 +42,14 @@ export default{
     </section>
     
     <section class="icons-nav">
-        <ul>
-            <li v-for="iconItem in iconList">
+        <div class="icons-container">
+            <div class="banner-element" v-for="iconItem in iconList">
                 <img :src="`/img/${iconItem.icon}`" alt="icon">
-                <div>
+                <p>
                     {{ iconItem.text }}
-                </div>          
-            </li>
-        </ul>
+                </p>          
+            </div>
+        </div>
     </section>
 </template>
 
@@ -71,32 +71,25 @@ export default{
     background-color: $MainColor;
     padding: 4rem 0;
     
-    ul{
-        width: 80%;
+    .icons-container{
+        width: 75%;
         margin: 0 auto;
-        list-style-type: none;
         color: $WhiteColor;
-
-        li{
-            display: inline-block;
-
-            div{
-                display: inline;
-                margin: 0 1rem;
-            }
+        display: flex;
+        justify-content: space-between;
+        .banner-element{
+            display: flex;
+            align-items: center;
+            margin: 0 0.5rem;
 
             img{
-                vertical-align: middle;
+                width: 55px;
             }
 
-            &:last-child{
-                img{
-                    height: 80px;
-                }
+            p{
+                margin-left: 1rem;
             }
         }
-
     }
-
 }
 </style>

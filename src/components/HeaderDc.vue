@@ -61,10 +61,10 @@ export default{
 
 <template>
     <div class="header-container">
-        <div class="logo">
-            <img src="../assets/img/dc-logo.png" alt="Dc small logo">
-        </div>
         <nav>
+            <div class="logo">
+                <img src="../assets/img/dc-logo.png" alt="Dc small logo">
+            </div>
             <ul>
                 <li v-for="navItem in navList" :class="(navItem.current) ? `active` : ``">
                     {{ navItem.text }}
@@ -81,36 +81,49 @@ export default{
 .header-container{
     width: 70%;
     margin: 0 auto;
+}
+
+// Utilizzare un nav "wrapper" all'interno del contenitore di header, per poter gestire meglio le dimensioni degli elementi
+nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.logo{
-    padding: 0.8rem 0;
-    
-    img{
-        width: 75%;
+    height: 120px;
+    .logo{
+        padding: 1rem 0;
+        height: 100%;
+        // Necessario assegnare un'altezza al div contenitore dell'img poichè il nav container ha un'altezza fissa
+        // Per far funzionare il padding, bisogna specificare anche l'altezza dell'img
+        img{
+            height: 100%;
+        }
     }
-}
 
-nav ul{
-    list-style-type: none;
-
-    li{
-        display: inline-block;
-        padding: 0 0.8rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 0.9rem;
-
-        &.active{
-            color: $MainColor
-        }
-
-        &:hover{
-            color: $MainColor;
-            cursor: pointer;
-        }
+    ul{
+        display: flex;
+        list-style-type: none;
+        height: 100%;
+    
+        li{
+            display: inline-block;
+            padding: 0 0.8rem;
+            text-transform: uppercase;
+            line-height: calc(120px - 0.45rem);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-bottom: 2px solid $WhiteColor;
+    
+            &.active{
+                color: $MainColor;
+                border-bottom: 2px solid $MainColor;
+            }
+    
+            &:hover{
+                color: $MainColor;
+                border-bottom: 2px solid $MainColor;
+                cursor: pointer;
+            }
+    }
     }
 
 }
